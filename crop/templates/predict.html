@@ -563,13 +563,35 @@ function barColor(s)   { return s >= 75
   : s >= 50
   ? 'background:#c9971f'
   : 'background:#c0392b'; }
+  
+const CROP_IMAGES = {
+  rice: 'rice.jpeg',
+  maize: 'maize.jpg',
+  chickpea: 'cp.jpg.webp',
+  kidneybeans: 'kb.jpeg',
+  pigeonpeas: 'pep.jpg.webp',
+  mothbeans: 'mb.jpg.webp',
+  mungbean: 'mb.jpg.webp',
+  blackgram: 'bg.webp',
+  lentil: 'lentil.jpeg',
+  pomegranate: 'anar.jpg',
+  banana: 'banana.jpg.avif',
+  mango: 'mango.jpg',
+  grapes: 'grape.jpg.webp',
+  watermelon: 'watermelon.jpg',
+  muskmelon: 'muskmelon.jpg',
+  apple: 'apple.jpg.avif',
+  orange: 'orange.jpg',
+  papaya: 'papaya.webp',
+  coconut: 'coconut.jpg.webp',
+  cotton: 'cotton.jpg.webp',
+  jute: 'jute.jpg',
+  coffee: 'coffee.jpg',
+};
 
-/* Converts a crop name returned by the backend into the image filename
-   you have stored in crop_recommend/static/images/ — adjust this if your
-   filenames use a different convention (e.g. capitalised, .png, etc.) */
 function cropImgPath(cropName) {
-  const key = cropName.toLowerCase().replace(/\s+/g, '');
-  return `/static/images/${key}.jpg`; // leave blank / change extension as needed
+  const file = CROP_IMAGES[cropName.toLowerCase()];
+  return file ? `/static/images/${file}` : '/static/images/default-crop.jpg';
 }
 
 function render(d) {

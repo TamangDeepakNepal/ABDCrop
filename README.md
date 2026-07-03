@@ -1,0 +1,345 @@
+# 🌾 Crop Recommendation System
+
+A web-based Crop Recommendation System developed using **Python**, **Flask**, **Machine Learning**, and **SQLite**. The application predicts the most suitable crop based on soil nutrients and environmental conditions using a **Decision Tree Classifier** trained on the **Crop Recommendation Dataset**.
+
+The system also provides user authentication, farmer profile management, and prediction history, making it a complete web application for agricultural decision support.
+
+---
+
+## 📖 Project Overview
+
+Selecting the right crop is one of the most important factors affecting agricultural productivity. This project assists farmers by recommending the most suitable crop based on soil characteristics and climatic conditions.
+
+The prediction model is trained using the **Kaggle Crop Recommendation Dataset** and uses a **Decision Tree Classification** algorithm to classify the best crop for the given input values.
+
+The application is built using the Flask framework and follows a simple web-based architecture with separate modules for farmers and administrators.
+
+---
+
+## ✨ Features
+
+### 👨‍🌾 Farmer Module
+
+- Farmer Registration
+- Secure Login
+- Create and Update Farmer Profile
+- Crop Recommendation
+- View Prediction History
+- Logout
+
+### 👨‍💼 Admin Module
+
+- Admin Login
+- Dashboard
+- View Registered Farmers
+- Manage Farmer Records
+- View Crop Recommendation History
+
+---
+
+## 🤖 Machine Learning Model
+
+| Property | Details |
+|----------|---------|
+| Algorithm | Decision Tree Classifier |
+| Dataset | Kaggle Crop Recommendation Dataset |
+| Library | Scikit-learn |
+| Task | Multi-Class Classification |
+| Model Storage | Trained automatically when the Flask application starts |
+
+The model is trained from the dataset during application startup. When a farmer submits soil and environmental information, the trained model predicts the most suitable crop.
+
+---
+
+## 📊 Input Parameters
+
+The prediction model requires the following seven parameters:
+
+| Parameter | Description |
+|----------|-------------|
+| Nitrogen (N) | Nitrogen content in soil |
+| Phosphorus (P) | Phosphorus content in soil |
+| Potassium (K) | Potassium content in soil |
+| Temperature | Temperature (°C) |
+| Humidity | Relative Humidity (%) |
+| pH | Soil pH value |
+| Rainfall | Rainfall (mm) |
+
+---
+
+## ⚙️ Prediction Workflow
+
+```
+User Login
+      │
+      ▼
+Enter Soil & Environmental Data
+      │
+      ▼
+Input Validation
+      │
+      ▼
+Decision Tree Classifier
+      │
+      ▼
+Crop Prediction
+      │
+      ▼
+Save Prediction to Database
+      │
+      ▼
+Display Recommended Crop
+```
+
+---
+
+## 🛠️ Technology Stack
+
+### Frontend
+
+- HTML5
+- CSS3
+- JavaScript
+- Jinja2 Templates
+
+### Backend
+
+- Python
+- Flask
+
+### Machine Learning
+
+- Scikit-learn
+- Pandas
+- NumPy
+
+### Database
+
+- SQLite
+- SQLAlchemy ORM
+
+---
+
+## 🗂️ Database Structure
+
+The application uses SQLite with SQLAlchemy ORM.
+
+### Tables
+
+### User
+
+Stores login credentials and user roles.
+
+Fields include:
+
+- ID
+- Username
+- Password
+- Role
+
+---
+
+### FarmerProfile
+
+Stores farmer information.
+
+Fields include:
+
+- Farmer ID
+- Full Name
+- Email
+- Phone Number
+- Address
+
+---
+
+### Recommendation
+
+Stores every prediction made by farmers.
+
+Fields include:
+
+- Recommendation ID
+- Farmer ID
+- Nitrogen
+- Phosphorus
+- Potassium
+- Temperature
+- Humidity
+- pH
+- Rainfall
+- Predicted Crop
+- Timestamp
+
+---
+
+## 📁 Project Structure
+
+```
+Crop-Recommendation-System/
+│
+├── app.py
+├── requirements.txt
+├── README.md
+│
+├── templates/
+│
+├── static/
+│   ├── css/
+│   ├── js/
+│   └── images/
+│
+├── instance/
+│
+├── crop_recommendation.db
+│
+└── dataset/
+```
+
+---
+
+## 🚀 Installation
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/your-username/Crop-Recommendation-System.git
+```
+
+### 2. Move into the project directory
+
+```bash
+cd Crop-Recommendation-System
+```
+
+### 3. Create a virtual environment (Optional)
+
+```bash
+python -m venv venv
+```
+
+Activate the virtual environment.
+
+Windows
+
+```bash
+venv\Scripts\activate
+```
+
+Linux/macOS
+
+```bash
+source venv/bin/activate
+```
+
+### 4. Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 5. Run the application
+
+```bash
+python app.py
+```
+
+### 6. Open your browser
+
+```
+http://127.0.0.1:5000
+```
+
+---
+
+## 📸 Screenshots
+
+Create a folder named **screenshots** and add images such as:
+
+```
+screenshots/
+├── home.png
+├── login.png
+├── register.png
+├── prediction.png
+├── dashboard.png
+```
+
+Example:
+
+```markdown
+![Home](screenshots/home.png)
+
+![Prediction](screenshots/prediction.png)
+
+![Dashboard](screenshots/dashboard.png)
+```
+
+---
+
+## 📦 Python Libraries Used
+
+- Flask
+- Flask-SQLAlchemy
+- Scikit-learn
+- Pandas
+- NumPy
+
+---
+
+## 🔐 Authentication
+
+The application uses Flask's built-in **session-based authentication**.
+
+Two user roles are supported:
+
+- Admin
+- Farmer
+
+Only authenticated users can access protected pages.
+
+---
+
+## 💾 Prediction History
+
+Every crop recommendation generated by the model is automatically stored in the **Recommendation** table.
+
+Users can review their previous recommendations through the application interface.
+
+---
+
+## 🌱 Future Enhancements
+
+- Weather API Integration
+- Fertilizer Recommendation
+- Crop Disease Detection
+- Responsive Mobile Version
+- SMS Notifications
+- Multilingual Support
+- Model Comparison (Random Forest, XGBoost, SVM)
+
+---
+
+## 👥 Team Members
+
+| Name | Symbol Number |
+|------|---------------|
+| Ayush B.K. | 79010162 |
+| Bisham Kumal | 79012307 |
+| Dipak Tamang | 79010177 |
+
+---
+
+## 🎓 Academic Purpose
+
+This project was developed as an academic project to demonstrate the practical implementation of Machine Learning and Web Development for agricultural decision support.
+
+---
+
+## 📄 License
+
+This repository is intended for educational and learning purposes.
+
+---
+
+⭐ If you find this project useful, consider giving it a star on GitHub.
